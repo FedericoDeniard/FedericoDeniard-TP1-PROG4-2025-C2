@@ -20,7 +20,7 @@ export class Button {
   @Input() fullWidth: boolean = false;
   @Input() ariaLabel: string = '';
 
-  get buttonClasses(): string {
+  protected get buttonClasses(): string {
     const classes: string[] = [];
 
     // Base classes
