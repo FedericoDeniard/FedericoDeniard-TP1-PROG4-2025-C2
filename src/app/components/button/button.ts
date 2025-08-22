@@ -19,13 +19,13 @@ export class Button {
   @Input() icon: string = '';
   @Input() fullWidth: boolean = false;
   @Input() ariaLabel: string = '';
-  
+
   get buttonClasses(): string {
     const classes: string[] = [];
-    
+
     // Base classes
     classes.push('font-title font-medium transition-all');
-    
+
     // Type classes
     switch (this.type) {
       case 'primary':
@@ -56,7 +56,7 @@ export class Button {
         classes.push('bg-transparent text-[#12874e] hover:bg-[#f0fdf4]');
         break;
     }
-    
+
     // Size classes
     if (this.iconOnly) {
       switch (this.size) {
@@ -102,7 +102,7 @@ export class Button {
           break;
       }
     }
-    
+
     // Disabled state
     if (this.disabled) {
       classes.push('bg-[#d5d7da] text-[#8e8e8e] cursor-not-allowed opacity-60');
@@ -111,17 +111,17 @@ export class Button {
         classes.push('border-[#d5d7da]');
       }
     }
-    
+
     // Full width
     if (this.fullWidth) {
       classes.push('w-full');
     }
-    
+
     // Icon with text
     if (this.icon && !this.iconOnly) {
       classes.push('flex items-center gap-2');
     }
-    
+
     return classes.join(' ');
   }
 }
