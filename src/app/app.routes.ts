@@ -36,6 +36,10 @@ export const routes: Routes = [
                 path: "buttons",
                 loadComponent: () => import('./pages/styleguide/buttons/buttons').then((mod) => mod.Buttons)
             },
+            {
+                path: "icons",
+                loadComponent: () => import('./pages/styleguide/icons/icons').then((mod) => mod.Icons)
+            }
         ]
     },
     {

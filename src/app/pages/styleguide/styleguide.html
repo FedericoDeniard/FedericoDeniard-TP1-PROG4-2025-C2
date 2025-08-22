@@ -24,15 +24,292 @@
         </div>
       </div>
       <div class="flex gap-8 items-start justify-start w-full">
-        <a routerLink="./typography"
-          class="bg-[#12874e] text-white font-title font-medium text-[16px] leading-[24px] px-6 py-3 rounded-lg hover:bg-[#0f6b3f] transition-colors">Typography</a>
-        <a routerLink="./colours"
-          class="bg-[#12874e] text-white font-title font-medium text-[16px] leading-[24px] px-6 py-3 rounded-lg hover:bg-[#0f6b3f] transition-colors">Colours</a>
-        <a routerLink="./buttons"
-          class="bg-[#12874e] text-white font-title font-medium text-[16px] leading-[24px] px-6 py-3 rounded-lg hover:bg-[#0f6b3f] transition-colors">Buttons</a>
+        <app-button type="primary" routerLink="./typography">Typography</app-button>
+        <app-button type="primary" routerLink="./colours">Colours</app-button>
+        <app-button type="primary" routerLink="./buttons">Buttons</app-button>
 
       </div>
 
+      <!-- Demostración de Componente de Botón -->
+      <div class="box-border flex flex-col gap-8 items-start justify-start w-full mt-12">
+        <div class="box-border flex items-start justify-between pb-4 w-full border-b border-[#d5d7da]">
+          <div class="font-title text-[#1f1f1f] text-[16px] leading-[24px]">
+            <p>Demostración de Componente de Botón</p>
+          </div>
+        </div>
+        
+        <!-- Tipos de Botones -->
+        <div class="flex flex-col gap-6 w-full">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Tipos de Botones</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <app-button type="primary">Primario</app-button>
+            <app-button type="secondary">Secundario</app-button>
+            <app-button type="tertiary">Terciario</app-button>
+            <app-button type="danger">Peligro</app-button>
+            <app-button type="warning">Advertencia</app-button>
+            <app-button type="outline">Outline</app-button>
+            <app-button type="ghost">Ghost</app-button>
+          </div>
+        </div>
+        
+        <!-- Tamaños de Botones -->
+        <div class="flex flex-col gap-6 w-full mt-8">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Tamaños de Botones</p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-end">
+            <app-button size="xs">Extra Small</app-button>
+            <app-button size="sm">Small</app-button>
+            <app-button size="md">Medium</app-button>
+            <app-button size="lg">Large</app-button>
+            <app-button size="xl">Extra Large</app-button>
+            <app-button size="2xl">2XL</app-button>
+          </div>
+        </div>
+        
+        <!-- Estados de Botones -->
+        <div class="flex flex-col gap-6 w-full mt-8">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Estados de Botones</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <app-button>Normal</app-button>
+            <app-button [disabled]="true">Deshabilitado</app-button>
+            <div class="w-full max-w-xs">
+              <app-button [fullWidth]="true">Ancho Completo</app-button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Botones con Iconos -->
+        <div class="flex flex-col gap-6 w-full mt-8">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Botones con Iconos</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+          <app-button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+              <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Con Icono
+          </app-button>
+          <app-button [iconOnly]="true" ariaLabel="Editar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H16A2 2 0 0 0 18 18V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18.5 2.5A2.121 2.121 0 0 1 21 4.621L19.379 6.243L17.757 4.621A2.121 2.121 0 0 1 18.5 2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </app-button>
+          <app-button type="secondary" [iconOnly]="true" ariaLabel="Eliminar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </app-button>
+          <app-button type="danger" [iconOnly]="true" ariaLabel="Cancelar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </app-button>
+        </div>
+        </div>
+        
+
+        
+        <!-- Botones de Advertencia -->
+        <div class="flex flex-col gap-6 w-full mt-8">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Warning Actions</p>
+          </div>
+          <div class="font-text text-[#666666] text-[14px] leading-[20px] mb-4">
+            <p>Use for actions that require user attention or caution</p>
+          </div>
+          <div class="flex flex-col gap-6">
+            <!-- Primary Warning -->
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-4">
+                <app-button type="warning">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+              <path d="M10.29 3.86L1.82 18A2 2 0 0 0 3.54 21H20.46A2 2 0 0 0 22.18 18L13.71 3.86A2 2 0 0 0 10.29 3.86Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 9V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            PROCEED WITH CAUTION
+          </app-button>
+                <div class="flex flex-col">
+                  <div class="font-title text-[#1f1f1f] text-[14px] leading-[20px]">Primary Warning</div>
+                  <div class="font-text text-[#666666] text-[12px] leading-[16px]">High attention needed</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Secondary Warning -->
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-4">
+                <app-button type="warning-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+              <path d="M12 9V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            REVIEW CHANGES
+          </app-button>
+                <div class="flex flex-col">
+                  <div class="font-title text-[#1f1f1f] text-[14px] leading-[20px]">Secondary Warning</div>
+                  <div class="font-text text-[#666666] text-[12px] leading-[16px]">Medium attention needed</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Text Warning -->
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-4">
+                <app-button type="warning-text">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+              <path d="M12 9V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            CHECK DETAILS
+          </app-button>
+                <div class="flex flex-col">
+                  <div class="font-title text-[#1f1f1f] text-[14px] leading-[20px]">Text Warning</div>
+                  <div class="font-text text-[#666666] text-[12px] leading-[16px]">Low attention needed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Botones Destructivos -->
+        <div class="flex flex-col gap-6 w-full mt-8">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Acciones Destructivas</p>
+          </div>
+          <div class="font-text text-[#666666] text-[14px] leading-[20px] mb-4">
+            <p>Botones para acciones que eliminan o modifican datos permanentemente</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <app-button type="danger">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Eliminar Cuenta
+            </app-button>
+            <app-button type="danger">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Cancelar Suscripción
+            </app-button>
+            <app-button type="danger" size="sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M4.93 4.93L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Bloquear Usuario
+            </app-button>
+            <app-button type="danger" [iconOnly]="true" ariaLabel="Eliminar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </app-button>
+          </div>
+        </div>
+        
+        <!-- Botones de Acción -->
+        <div class="flex flex-col gap-6 w-full mt-8">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Botones de Acción</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <app-button type="primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Descargar
+            </app-button>
+            <app-button type="primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="17,8 12,3 7,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Subir Archivo
+            </app-button>
+            <app-button type="secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/>
+                <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Compartir
+            </app-button>
+            <app-button type="secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M5 15H4A2 2 0 0 1 2 13V4A2 2 0 0 1 4 2H13A2 2 0 0 1 15 4V5" stroke="currentColor" stroke-width="2" fill="none"/>
+              </svg>
+              Copiar
+            </app-button>
+            <app-button type="tertiary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <polyline points="6,9 6,2 18,2 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 18H4A2 2 0 0 1 2 16V11A2 2 0 0 1 4 9H20A2 2 0 0 1 22 11V16A2 2 0 0 1 20 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="6" y="14" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+              </svg>
+              Imprimir
+            </app-button>
+          </div>
+        </div>
+        
+        <!-- Combinaciones -->
+        <div class="flex flex-col gap-6 w-full mt-8">
+          <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
+            <p>Combinaciones</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <app-button type="primary" size="lg">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Guardar Cambios
+            </app-button>
+            <app-button type="secondary" size="sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <line x1="19" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="12,19 5,12 12,5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Volver
+            </app-button>
+            <app-button type="danger" size="md">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Eliminar
+            </app-button>
+            <app-button type="tertiary" size="xs">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Más Info
+            </app-button>
+          </div>
+        </div>
+      </div>
+      
       <div class="box-border flex flex-col gap-20 items-start justify-start pb-20 pt-32 px-20 relative w-full">
         <div class="fixed bg-orange-500 bottom-0 h-3 left-0 right-0 z-50"></div>
       </div>

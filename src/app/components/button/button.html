@@ -1,0 +1,16 @@
+<button 
+  [ngClass]="buttonClasses"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel || null"
+  type="button"
+  class="flex items-center justify-center">
+  @if (iconOnly) {
+    @if (icon) {
+      <i class="{{icon}}"></i>
+    } @else {
+      <ng-content></ng-content>
+    }
+  } @else {
+    <ng-content></ng-content>
+  }
+</button>
