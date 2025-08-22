@@ -13,6 +13,10 @@ export const routes: Routes = [
             {
                 path: 'profile',
                 loadComponent: () => import('./pages/profile/profile').then((mod) => mod.Profile)
+            },
+            {
+                path: 'about',
+                loadComponent: () => import('./pages/about/about').then((mod) => mod.About)
             }
         ]
 

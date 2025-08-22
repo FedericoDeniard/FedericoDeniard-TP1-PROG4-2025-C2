@@ -1,4 +1,6 @@
-<p>{{getMensaje()}}</p>
-<input type="text" [(ngModel)]="nombre" placeholder="Ingrese un mensaje">
-<p>{{nombre}}</p>
-<button class="btn btn-blue" routerLink="/error">Go to Error</button>
+<div class="h-screen bg-white">
+    <p class="font-text">{{getMensaje()}}</p>
+    <input type="text" [(ngModel)]="nombre" placeholder="Ingrese un mensaje">
+    <p class="font-text">{{nombre}}</p>
+    <app-button>Go to Error</app-button>
+</div>
