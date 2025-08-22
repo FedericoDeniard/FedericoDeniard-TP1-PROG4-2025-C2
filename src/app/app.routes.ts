@@ -1,14 +1,45 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
-import { Error } from './pages/error/error';
+import { MainLayout } from './layout/main-layout/main-layout';
 
 export const routes: Routes = [
     {
         path: '',
-        component: Home,
+        component: MainLayout,
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./pages/home/home').then((mod) => mod.Home),
+            },
+            {
+                path: 'profile',
+                loadComponent: () => import('./pages/profile/profile').then((mod) => mod.Profile)
+            }
+        ]
 
-    }, {
-        path: 'error',
-        component: Error,
+    },
+    {
+        path: "styleguide",
+        children: [
+            {
+                path: "",
+                loadComponent: () => import('./pages/styleguide/styleguide').then((mod) => mod.Styleguide)
+            },
+            {
+                path: "typography",
+                loadComponent: () => import('./pages/styleguide/typography/typography').then((mod) => mod.Typography)
+            },
+            {
+                path: "colours",
+                loadComponent: () => import('./pages/styleguide/colours/colours').then((mod) => mod.Colours)
+            },
+            {
+                path: "buttons",
+                loadComponent: () => import('./pages/styleguide/buttons/buttons').then((mod) => mod.Buttons)
+            },
+        ]
+    },
+    {
+        path: '**',
+        loadComponent: () => import('./pages/error/error').then((mod) => mod.Error),
     }
 ];
