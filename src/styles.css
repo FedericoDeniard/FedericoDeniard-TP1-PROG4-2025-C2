@@ -5,6 +5,22 @@
 @theme {
   --font-title: "Bebas Neue", sans-serif;
   --font-text: "Oswald", sans-serif;
+
+  --color-primary-dark-blue: #3D5A80;
+  --color-primary-light-blue: #98C1D9;
+  --color-primary-pale-blue: #E0FBFC;
+  --color-brand-orange: #EE6C4D;
+  --color-dark-charcoal: #293241;
+  
+  /* Error Colors based on Brand Palette - Simplified to 3 colors */
+  --color-error-dark-red: #8B2635;
+  --color-error-medium-red: #D73A49;
+  --color-error-pale-red: #FFEAEA;
+  
+  /* Warning Colors based on Brand Palette - Simplified to 3 colors */
+  --color-warning-dark-yellow: #B8860B;
+  --color-warning-medium-yellow: #F4A261;
+  --color-warning-pale-yellow: #FFF8E1;
 }
 
 /* You can add global styles to this file, and also import other style files */
