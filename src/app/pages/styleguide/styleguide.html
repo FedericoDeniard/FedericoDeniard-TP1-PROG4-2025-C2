@@ -30,34 +30,34 @@
 
       </div>
 
-      <!-- Demostración de Componente de Botón -->
+      <!-- Button Component Demonstration -->
       <div class="box-border flex flex-col gap-8 items-start justify-start w-full mt-12">
         <div class="box-border flex items-start justify-between pb-4 w-full border-b border-[#d5d7da]">
-          <div class="font-title text-[#1f1f1f] text-[16px] leading-[24px]">
-            <p>Demostración de Componente de Botón</p>
-          </div>
+          <div class="font-title text-[#1f1f1f] text-[16px] leading-[24px]" >
+          <p>Button Component Demonstration</p>
+        </div>
         </div>
         
-        <!-- Tipos de Botones -->
+        <!-- Button Types -->
         <div class="flex flex-col gap-6 w-full">
           <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
-            <p>Tipos de Botones</p>
+            <p>Button Types</p>
           </div>
           <div class="flex flex-wrap gap-4">
-            <app-button type="primary">Primario</app-button>
-            <app-button type="secondary">Secundario</app-button>
-            <app-button type="tertiary">Terciario</app-button>
-            <app-button type="danger">Peligro</app-button>
-            <app-button type="warning">Advertencia</app-button>
+            <app-button type="primary">Primary</app-button>
+            <app-button type="secondary">Secondary</app-button>
+            <app-button type="tertiary">Tertiary</app-button>
+            <app-button type="danger">Danger</app-button>
+            <app-button type="warning">Warning</app-button>
             <app-button type="outline">Outline</app-button>
             <app-button type="ghost">Ghost</app-button>
           </div>
         </div>
         
-        <!-- Tamaños de Botones -->
+        <!-- Button Sizes -->
         <div class="flex flex-col gap-6 w-full mt-8">
           <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
-            <p>Tamaños de Botones</p>
+            <p>Button Sizes</p>
           </div>
           <div class="flex flex-wrap gap-4 items-end">
             <app-button size="xs">Extra Small</app-button>
@@ -69,31 +69,31 @@
           </div>
         </div>
         
-        <!-- Estados de Botones -->
+        <!-- Button States -->
         <div class="flex flex-col gap-6 w-full mt-8">
           <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
-            <p>Estados de Botones</p>
+            <p>Button States</p>
           </div>
           <div class="flex flex-wrap gap-4">
             <app-button>Normal</app-button>
-            <app-button [disabled]="true">Deshabilitado</app-button>
+            <app-button [disabled]="true">Disabled</app-button>
             <div class="w-full max-w-xs">
-              <app-button [fullWidth]="true">Ancho Completo</app-button>
+              <app-button [fullWidth]="true">Full Width</app-button>
             </div>
           </div>
         </div>
         
-        <!-- Botones con Iconos -->
+        <!-- Buttons with Icons -->
         <div class="flex flex-col gap-6 w-full mt-8">
           <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
-            <p>Botones con Iconos</p>
+            <p>Buttons with Icons</p>
           </div>
           <div class="flex flex-wrap gap-4">
           <app-button>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
               <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Con Icono
+            With Icon
           </app-button>
           <app-button [iconOnly]="true" ariaLabel="Editar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,13 +101,13 @@
               <path d="M18.5 2.5A2.121 2.121 0 0 1 21 4.621L19.379 6.243L17.757 4.621A2.121 2.121 0 0 1 18.5 2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </app-button>
-          <app-button type="secondary" [iconOnly]="true" ariaLabel="Eliminar">
+          <app-button type="secondary" [iconOnly]="true" ariaLabel="Delete">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </app-button>
-          <app-button type="danger" [iconOnly]="true" ariaLabel="Cancelar">
+          <app-button type="danger" [iconOnly]="true" ariaLabel="Cancel">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -183,13 +183,13 @@
           </div>
         </div>
         
-        <!-- Botones Destructivos -->
+        <!-- Destructive Buttons -->
         <div class="flex flex-col gap-6 w-full mt-8">
           <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
-            <p>Acciones Destructivas</p>
+            <p>Destructive Actions</p>
           </div>
           <div class="font-text text-[#666666] text-[14px] leading-[20px] mb-4">
-            <p>Botones para acciones que eliminan o modifican datos permanentemente</p>
+            <p>Buttons for actions that permanently delete or modify data</p>
           </div>
           <div class="flex flex-wrap gap-4">
             <app-button type="danger">
@@ -197,21 +197,21 @@
                 <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Eliminar Cuenta
+              Delete Account
             </app-button>
             <app-button type="danger">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                 <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Cancelar Suscripción
+              Cancel Subscription
             </app-button>
             <app-button type="danger" size="sm">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
                 <path d="M4.93 4.93L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Bloquear Usuario
+              Block User
             </app-button>
             <app-button type="danger" [iconOnly]="true" ariaLabel="Eliminar">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -222,10 +222,10 @@
           </div>
         </div>
         
-        <!-- Botones de Acción -->
+        <!-- Action Buttons -->
         <div class="flex flex-col gap-6 w-full mt-8">
           <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
-            <p>Botones de Acción</p>
+            <p>Action Buttons</p>
           </div>
           <div class="flex flex-wrap gap-4">
             <app-button type="primary">
@@ -234,7 +234,7 @@
                 <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Descargar
+              Download
             </app-button>
             <app-button type="primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
@@ -242,7 +242,7 @@
                 <polyline points="17,8 12,3 7,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Subir Archivo
+              Upload File
             </app-button>
             <app-button type="secondary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
@@ -252,14 +252,14 @@
                 <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2"/>
                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2"/>
               </svg>
-              Compartir
+              Share
             </app-button>
             <app-button type="secondary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
                 <path d="M5 15H4A2 2 0 0 1 2 13V4A2 2 0 0 1 4 2H13A2 2 0 0 1 15 4V5" stroke="currentColor" stroke-width="2" fill="none"/>
               </svg>
-              Copiar
+              Copy
             </app-button>
             <app-button type="tertiary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
@@ -267,36 +267,36 @@
                 <path d="M6 18H4A2 2 0 0 1 2 16V11A2 2 0 0 1 4 9H20A2 2 0 0 1 22 11V16A2 2 0 0 1 20 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <rect x="6" y="14" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
               </svg>
-              Imprimir
+              Print
             </app-button>
           </div>
         </div>
         
-        <!-- Combinaciones -->
+        <!-- Combinations -->
         <div class="flex flex-col gap-6 w-full mt-8">
           <div class="font-title text-[#1f1f1f] text-[20px] leading-[28px]">
-            <p>Combinaciones</p>
+            <p>Combinations</p>
           </div>
           <div class="flex flex-wrap gap-4">
             <app-button type="primary" size="lg">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                 <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Guardar Cambios
+              Save Changes
             </app-button>
             <app-button type="secondary" size="sm">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                 <line x1="19" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <polyline points="12,19 5,12 12,5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Volver
+              Back
             </app-button>
             <app-button type="danger" size="md">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                 <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Eliminar
+              Delete
             </app-button>
             <app-button type="tertiary" size="xs">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
@@ -304,7 +304,7 @@
                 <line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              Más Info
+              More Info
             </app-button>
           </div>
         </div>
