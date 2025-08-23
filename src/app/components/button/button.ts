@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 'warning-secondary' | 'warning-text' | 'outline' | 'ghost';
-export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 
 @Component({
   selector: 'app-button',
@@ -100,6 +100,9 @@ export class Button {
         case '2xl':
           classes.push('px-8 py-4 rounded-xl text-[24px] leading-[36px] min-w-[150px]');
           break;
+        case 'full':
+          classes.push('px-4 py-2 rounded-lg text-[16px] leading-[24px]');
+          break;
       }
     }
 
@@ -113,7 +116,7 @@ export class Button {
     }
 
     // Full width
-    if (this.fullWidth) {
+    if (this.fullWidth || this.size === 'full') {
       classes.push('w-full');
     }
 

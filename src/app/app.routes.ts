@@ -47,6 +47,19 @@ export const routes: Routes = [
         ]
     },
     {
+        path: 'auth',
+        children: [
+            {
+                path: 'register',
+                loadComponent: () => import('./pages/auth/register/register').then((mod) => mod.Register)
+            },
+            {
+                path: 'login',
+                loadComponent: () => import('./pages/auth/login/login').then((mod) => mod.Login)
+            }
+        ]
+    },
+    {
         path: '**',
         loadComponent: () => import('./pages/error/error').then((mod) => mod.Error),
     }
