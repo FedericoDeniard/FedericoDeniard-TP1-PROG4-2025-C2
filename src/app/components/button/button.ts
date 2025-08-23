@@ -29,31 +29,31 @@ export class Button {
     // Type classes
     switch (this.type) {
       case 'primary':
-        classes.push('bg-[#12874e] text-white hover:bg-[#0f6b3f]');
+        classes.push('bg-[#3D5A80] text-white hover:bg-[#2E4A6B] active:bg-[#1F3A56]');
         break;
       case 'secondary':
-        classes.push('bg-white border-2 border-[#12874e] text-[#12874e] hover:bg-[#f0f9f4]');
+        classes.push('bg-[#98C1D9] text-white border border-[#98C1D9] hover:bg-[#3D5A80]');
         break;
       case 'tertiary':
-        classes.push('bg-transparent text-[#12874e] hover:bg-[#f0f9f4]');
+        classes.push('bg-transparent text-[#3D5A80] hover:bg-[#E0F2FE]');
         break;
       case 'danger':
-        classes.push('bg-[#dc2626] text-white hover:bg-[#b91c1c]');
+        classes.push('bg-[#D73A49] text-white hover:bg-[#8B2635]');
         break;
       case 'warning':
-        classes.push('bg-[#f59e0b] text-white hover:bg-[#d97706]');
+        classes.push('bg-[#F4A261] text-white hover:bg-[#B8860B]');
         break;
       case 'warning-secondary':
-        classes.push('bg-transparent text-[#f59e0b] border-2 border-[#f59e0b] hover:bg-[#f59e0b] hover:text-white');
+        classes.push('bg-transparent text-[#F4A261] border-2 border-[#F4A261] hover:bg-[#F4A261] hover:text-white');
         break;
       case 'warning-text':
-        classes.push('bg-transparent text-[#f59e0b] hover:bg-[#fffbeb]');
+        classes.push('bg-transparent text-[#F4A261] hover:bg-[#FFF8E1]');
         break;
       case 'outline':
-        classes.push('bg-transparent text-[#12874e] border-2 border-[#12874e] hover:bg-[#12874e] hover:text-white');
+        classes.push('bg-transparent text-[#3D5A80] border-2 border-[#3D5A80] hover:bg-[#3D5A80] hover:text-white');
         break;
       case 'ghost':
-        classes.push('bg-transparent text-[#12874e] hover:bg-[#f0fdf4]');
+        classes.push('bg-transparent text-[#3D5A80] hover:bg-[#E0FBFC]');
         break;
     }
 
