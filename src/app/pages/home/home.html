@@ -1,7 +1,10 @@
-<div class="flex flex-col pb-8 justify-center items-center">
-    <div class="text-center">
-        <h1 class="text-4xl font-title text-gray-900 mb-2">¡Bienvenido!</h1>
-        <p class="font-text text-gray-600 mb-8">Esta es la página de bienvenida de tu aplicación.</p>
+<div class="flex flex-col flex-grow justify-center">
+    <div class="flex flex-col flex-grow text-center justify-evenly max-h-76">
+        <div>
+            <h1 class="text-4xl font-title text-gray-900 mb-2">¡Bienvenido!</h1>
+            <p class="font-text text-gray-600 mb-8">Esta es la página de bienvenida de tu aplicación.</p>
+
+        </div>
         <div class="flex justify-center space-x-4">
             <app-button buttonType="primary" routerLink="/auth/login">Iniciar Sesión</app-button>
             <app-button buttonType="secondary" routerLink="/auth/register">Registrarse</app-button>

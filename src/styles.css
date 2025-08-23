@@ -25,3 +25,15 @@
 
 /* You can add global styles to this file, and also import other style files */
 /* Reset default styles */
+
+/* Hacer que los componentes renderizados por router-outlet hereden la altura disponible */
+@layer base {
+  main {
+    @apply flex flex-col;
+  }
+  
+  /* Aplicar a todos los hijos de main EXCEPTO router-outlet */
+  main > *:not(router-outlet) {
+    @apply flex flex-col flex-grow min-h-0;
+  }
+}
