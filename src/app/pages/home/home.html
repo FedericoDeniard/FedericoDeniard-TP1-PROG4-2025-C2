@@ -1,6 +1,10 @@
-<div class="flex flex-col flex-grow bg-white">
-    <p class="font-text">{{getMensaje()}}</p>
-    <input type="text" [(ngModel)]="nombre" placeholder="Ingrese un mensaje">
-    <p class="font-text">{{nombre}}</p>
-    <app-button routerLink="/error">Go to Error</app-button>
+<div class="flex flex-col pb-8 justify-center items-center bg-red-500">
+    <div class="text-center">
+        <h1 class="text-4xl font-title text-gray-900 mb-2">¡Bienvenido!</h1>
+        <p class="font-text text-gray-600 mb-8">Esta es la página de bienvenida de tu aplicación.</p>
+        <div class="flex justify-center space-x-4">
+            <app-button buttonType="primary" routerLink="/auth/login">Iniciar Sesión</app-button>
+            <app-button buttonType="secondary" routerLink="/auth/register">Registrarse</app-button>
+        </div>
+    </div>
 </div>
