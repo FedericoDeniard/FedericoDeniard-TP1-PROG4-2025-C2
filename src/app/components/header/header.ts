@@ -1,39 +1,39 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
   standalone: true
 })
 export class Header {
-  private _count = 1
-  private _selected = 'home';
+  isMenuOpen = false;
+  isModalOpen = false;
+  selectedItem: string | null = null;
 
-  get count(): number {
-    return this._count;
+  constructor(private router: Router) {}
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
-  increment(): void {
-    this._count++;
+  setSelected(item: string) {
+    this.selectedItem = item;
+    this.isMenuOpen = false; // Close menu on item selection
   }
 
-  decrement(): void {
-    this._count--;
+  isSelected(item: string): boolean {
+    return this.selectedItem === item;
   }
 
-  get selected(): string {
-    return this._selected;
+  openModal() {
+    this.isModalOpen = true;
   }
 
-  setSelected(selected: string) {
-    this._selected = selected;
+  closeModal() {
+    this.isModalOpen = false;
   }
-
-  isSelected(linkName: string): boolean {
-    return this._selected === linkName;
-  }
-
 }
