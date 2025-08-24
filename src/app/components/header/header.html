@@ -1,7 +1,7 @@
 <nav class="bg-[#2E4A6B] w-full border-b border-[#E9EAEB]">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse" (click)="setSelected('home')">
-            <img src="favicon.ico" class="h-8" alt="Flowbite Logo">
+            <img src="/images/logo.ico" class="h-8" alt="logo">
             <span class="self-center text-2xl font-title whitespace-nowrap text-white">Programación IV</span>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -25,13 +25,17 @@
             </a>
         </div>
         <!-- Sidebar overlay -->
-        <div *ngIf="isMenuOpen" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" (click)="toggleMenu()"></div>
+        <div *ngIf="isMenuOpen" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" (click)="toggleMenu()">
+        </div>
 
         <!-- Sidebar menu -->
-        <div id="navbar-sticky" [class.-translate-x-full]="!isMenuOpen" class="fixed top-0 left-0 h-full w-64 bg-[#2E4A6B] z-50 transform transition-transform duration-300 ease-in-out md:relative md:flex md:w-auto md:order-1 md:translate-x-0">
+        <div id="navbar-sticky" [class.-translate-x-full]="!isMenuOpen"
+            class="fixed top-0 left-0 h-full w-64 bg-[#2E4A6B] z-50 transform transition-transform duration-300 ease-in-out md:relative md:flex md:w-auto md:order-1 md:translate-x-0">
             <button (click)="toggleMenu()" type="button" class="absolute top-4 left-4 text-white md:hidden">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
                 </svg>
             </button>
             <ul
@@ -70,14 +74,17 @@
 </nav>
 
 <!-- Modal Structure -->
-<div *ngIf="isModalOpen" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+<div *ngIf="isModalOpen"
+    class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
     <div class="p-8 border w-96 shadow-lg rounded-md bg-white">
         <h3 class="text-lg font-medium leading-6 text-gray-900 font-title">Modal Title</h3>
         <div class="mt-2 px-7 py-3">
-            <p class="text-sm text-gray-500 font-text">This is a simple modal example using Angular and Tailwind CSS.</p>
+            <p class="text-sm text-gray-500 font-text">This is a simple modal example using Angular and Tailwind CSS.
+            </p>
         </div>
         <div class="mt-4 flex justify-end">
-            <button (click)="closeModal()" class="px-4 py-2 bg-[#EE6C4D] text-white text-base font-medium rounded-md shadow-sm hover:bg-[#D65A3F] focus:outline-none focus:ring-2 focus:ring-gray-300">
+            <button (click)="closeModal()"
+                class="px-4 py-2 bg-[#EE6C4D] text-white text-base font-medium rounded-md shadow-sm hover:bg-[#D65A3F] focus:outline-none focus:ring-2 focus:ring-gray-300">
                 Close
             </button>
         </div>

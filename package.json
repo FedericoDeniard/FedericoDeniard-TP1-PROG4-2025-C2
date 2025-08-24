@@ -30,6 +30,7 @@
     "@angular/platform-browser": "^20.2.0",
     "@angular/router": "^20.2.0",
     "@capacitor/android": "^7.4.3",
+    "@capacitor/assets": "^3.0.5",
     "@capacitor/core": "^7.4.3",
     "@tailwindcss/postcss": "^4.1.12",
     "postcss": "^8.5.6",
