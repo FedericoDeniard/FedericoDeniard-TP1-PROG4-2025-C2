@@ -1,6 +1,6 @@
-<div class="flex h-screen">
+<div class="flex flex-col md:flex-row h-screen">
     <!-- Left Section: Login Form -->
-    <div class="w-1/2 bg-white rounded-l-lg p-8 relative">
+    <div class="w-full md:w-1/2 bg-white rounded-l-lg p-8 relative">
         <!-- App Title - Top Left -->
         <div class="absolute top-8 left-8 flex items-center">
             <img src="/images/logo.ico" alt="Programación IV. Logo" class="h-8 mr-2">
@@ -8,7 +8,7 @@
         </div>
 
         <!-- Main Content - Centered -->
-        <div class="flex items-center justify-center h-full">
+        <div class="flex items-center justify-center h-full pt-20 pb-8">
             <div class="max-w-md w-full">
                 <h1 class="text-4xl font-title text-gray-900 mb-2 text-center">Bienvenido a Programación IV.</h1>
                 <p class="font-text text-gray-600 mb-8 text-center">Bienvenido al Dashboard de Programación IV.</p>
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Right Section: Image -->
-    <div class="w-1/2 bg-gray-900 flex items-center justify-center rounded-r-lg">
+    <div class="hidden md:flex w-1/2 bg-gray-900 items-center justify-center rounded-r-lg">
         <img src="assets/login-image.png" alt="Imagen del juego" class="max-w-full h-auto">
     </div>
 </div>
