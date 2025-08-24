@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
 export class Header {
   isMenuOpen = false;
   isModalOpen = false;
-  selectedItem: string | null = null;
+  selectedItem: string | null = 'home';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
