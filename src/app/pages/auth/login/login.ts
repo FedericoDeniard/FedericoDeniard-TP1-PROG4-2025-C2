@@ -39,7 +39,13 @@ export class Login {
       })
       if (response.error) {
         console.log(response.error)
-        this.errorMessage = "Error al iniciar sesión"
+        if (response.error.message === "Invalid login credentials") {
+          this.errorMessage = "Credenciales inválidas"
+          return
+        }
+        else {
+          this.errorMessage = "Error al iniciar sesión"
+        }
         return
       }
       if (response.data.session) {
