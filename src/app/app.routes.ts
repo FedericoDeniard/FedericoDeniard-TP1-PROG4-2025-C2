@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
 import { MainLayout } from './layout/main-layout/main-layout';
+import { authGuard } from './services/auth-guard';
 
 export const routes: Routes = [
     {
         path: '',
         component: MainLayout,
+        canActivate: [authGuard],
         children: [
             {
                 path: '',
@@ -19,7 +21,6 @@ export const routes: Routes = [
                 loadComponent: () => import('./pages/about/about').then((mod) => mod.About)
             }
         ]
-
     },
     {
         path: "styleguide",
