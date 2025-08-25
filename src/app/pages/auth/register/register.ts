@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Button } from '../../../components/button/button';
 import { Router, RouterLink } from '@angular/router';
-import { Profile, SupabaseService } from '../../../services/supabase/supabase';
+import { SupabaseService } from '../../../services/supabase/supabase';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({

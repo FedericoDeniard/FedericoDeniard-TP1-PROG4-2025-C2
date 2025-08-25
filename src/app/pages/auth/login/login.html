@@ -8,7 +8,7 @@
         </div>
 
         <!-- Main Content - Centered -->
-        <div class="flex items-center justify-center h-full pt-20 pb-8">
+        <form class="flex items-center justify-center h-full pt-20 pb-8" (submit)="login($event)">
             <div class="max-w-md w-full">
                 <h1 class="text-4xl font-title text-gray-900 mb-2 text-center">¡Bienvenido de nuevo!</h1>
                 <p class="font-text text-gray-600 mb-8 text-center">Inicia sesión en tu cuenta.</p>
@@ -22,18 +22,20 @@
                 <div class="mb-4">
                     <label for="email" class="sr-only font-text">Email</label>
                     <input type="email" id="email" placeholder="Email"
-                        class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-text">
+                        class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-text"
+                        [formControl]="email">
                 </div>
                 <div class="mb-6">
                     <label for="password" class="sr-only font-text">Contraseña</label>
-                    <input type="password" id="password" placeholder="Contraseña"
+                    <input type="password" id="password" placeholder="Contraseña" [formControl]="password"
                         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-text">
                     <a
                         class="text-sm text-[var(--color-primary-dark-blue)] hover:underline mt-2 block text-right font-text">¿Olvidaste
                         tu contraseña?</a>
                 </div>
 
-                <app-button buttonType="primary" size="full" class="w-full mb-6" routerLink="/">Iniciar
+                <app-button buttonType="primary" [typeSubmit]="true" size="full" class="w-full mb-6"
+                    routerLink="/">Iniciar
                     sesión</app-button>
 
                 <p class="font-text text-center text-gray-600 p-4">
@@ -41,7 +43,7 @@
                         class="text-[var(--color-primary-dark-blue)] hover:underline">Regístrate</a>
                 </p>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Right Section: Image -->
