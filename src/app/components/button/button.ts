@@ -19,6 +19,7 @@ export class Button {
   @Input() icon: string = '';
   @Input() fullWidth: boolean = false;
   @Input() ariaLabel: string = '';
+  @Input() typeSubmit: boolean = false;
 
   protected get buttonClasses(): string {
     const classes: string[] = [];
