@@ -83,4 +83,11 @@ export class SupabaseService {
     }
     return data
   }
+
+  async getSessionAsync() {
+    const { data } = await this.supabase.auth.getSession()
+    this._session = data.session;
+    return this._session;
+
+  }
 }

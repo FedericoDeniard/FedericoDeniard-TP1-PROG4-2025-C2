@@ -34,10 +34,9 @@ export class Login {
       this.errorMessage = "Error al iniciar sesión"
       return
     }
+    if (response.data.session) {
 
-    if (response.data) {
-      console.log(response.data)
-      this.router.navigate(['/'])
+      this.router.navigate(["/"])
     }
   }
 }
