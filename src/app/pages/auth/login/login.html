@@ -33,9 +33,13 @@
                         class="text-sm text-[var(--color-primary-dark-blue)] hover:underline mt-2 block text-right font-text">¿Olvidaste
                         tu contraseña?</a>
                 </div>
-
-                <app-button buttonType="primary" [typeSubmit]="true" size="full" class="w-full mb-6">Iniciar
-                    sesión</app-button>
+                <app-button [disabled]="loading" buttonType="primary" [typeSubmit]="true" size="full"
+                    class="w-full mb-6">
+                    @if (loading) {
+                    <ng-icon name="featherLoader" class="animate-spin mr-2"></ng-icon>
+                    }
+                    {{loading ? 'Iniciando sesión' : 'Iniciar sesión'}}
+                </app-button>
 
                 <p class="font-text text-center text-gray-600 p-4">
                     ¿No tienes una cuenta? <a routerLink="/auth/register"
