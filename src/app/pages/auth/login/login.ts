@@ -38,7 +38,6 @@ export class Login {
         password: this.password.value
       })
       if (response.error) {
-        console.log(response.error)
         if (response.error.message === "Invalid login credentials") {
           this.errorMessage = "Credenciales inválidas"
           return
@@ -51,6 +50,8 @@ export class Login {
       if (response.data.session) {
         this.router.navigate(["/"])
       }
+    } catch (error) {
+      console.error(error)
     } finally {
       this.loading = false
       this.email.enable()

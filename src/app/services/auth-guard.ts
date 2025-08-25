@@ -10,6 +10,5 @@ export const authGuard: CanActivateFn = async (route, state) => {
   if (session === null) {
     session = await supabase.getSessionAsync()
   }
-  console.log("Me autentiqué")
   return session ? true : router.createUrlTree(['/auth/login']);
 };

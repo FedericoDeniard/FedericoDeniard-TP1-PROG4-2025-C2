@@ -60,11 +60,8 @@ export class Register {
       const response = await this.supabase.register(user)
       if (response.user !== null && response.session !== null) {
         this.router.navigate(['/'])
-        console.log("register success")
-        return
       }
     } catch (error) {
-      console.log("register error")
       console.error(error)
       this.errorMessage = "Error al registrarse"
     } finally {
