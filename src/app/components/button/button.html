@@ -1,5 +1,5 @@
 <button [ngClass]="buttonClasses" [attr.type]="typeSubmit() ? 'submit' : 'button'" [disabled]="disabled()"
-  [attr.aria-label]="ariaLabel || null" class="flex items-center justify-center">
+  [attr.aria-label]="ariaLabel || null" class="flex items-center justify-center" (click)="onClick.emit()">
   @if (iconOnly()) {
   @if (icon()) {
   <i class="{{icon()}}"></i>

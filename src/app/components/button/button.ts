@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input, Input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 'warning-secondary' | 'warning-text' | 'outline' | 'ghost';
@@ -21,6 +21,8 @@ export class Button {
   fullWidth = input<boolean>(false)
   ariaLabel = input<string>('')
   typeSubmit = input<boolean>(false)
+
+  onClick = output()
 
   protected get buttonClasses(): string {
     const classes: string[] = [];
