@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 'warning-secondary' | 'warning-text' | 'outline' | 'ghost';
@@ -11,15 +11,18 @@ export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   templateUrl: './button.html',
   styleUrl: './button.css'
 })
+
 export class Button {
-  @Input() type: ButtonType = 'primary';
-  @Input() size: ButtonSize = 'md';
-  @Input() disabled: boolean = false;
-  @Input() iconOnly: boolean = false;
-  @Input() icon: string = '';
-  @Input() fullWidth: boolean = false;
-  @Input() ariaLabel: string = '';
-  @Input() typeSubmit: boolean = false;
+  type = input<ButtonType>("primary")
+  size = input<ButtonSize>('md')
+  disabled = input<boolean>(false)
+  iconOnly = input<boolean>(false)
+  icon = input<string>('')
+  fullWidth = input<boolean>(false)
+  ariaLabel = input<string>('')
+  typeSubmit = input<boolean>(false)
+
+  onClick = output()
 
   protected get buttonClasses(): string {
     const classes: string[] = [];
@@ -28,7 +31,7 @@ export class Button {
     classes.push('font-title font-medium transition-all');
 
     // Type classes
-    switch (this.type) {
+    switch (this.type()) {
       case 'primary':
         classes.push('bg-[#3D5A80] text-white hover:bg-[#2E4A6B] active:bg-[#1F3A56]');
         break;
@@ -59,8 +62,8 @@ export class Button {
     }
 
     // Size classes
-    if (this.iconOnly) {
-      switch (this.size) {
+    if (this.iconOnly()) {
+      switch (this.size()) {
         case 'xs':
           classes.push('p-1.5 rounded w-8 h-8 text-[12px]');
           break;
@@ -82,7 +85,7 @@ export class Button {
       }
       classes.push('flex items-center justify-center');
     } else {
-      switch (this.size) {
+      switch (this.size()) {
         case 'xs':
           classes.push('px-2 py-1 rounded text-[12px] leading-[16px] min-w-[60px]');
           break;
@@ -108,21 +111,21 @@ export class Button {
     }
 
     // Disabled state
-    if (this.disabled) {
+    if (this.disabled()) {
       classes.push('bg-[#d5d7da] text-[#8e8e8e] cursor-not-allowed opacity-60');
       classes.push('hover:bg-[#d5d7da] hover:text-[#8e8e8e]'); // Override hover effects
-      if (this.type === 'secondary' || this.type === 'outline' || this.type === 'warning-secondary') {
+      if (this.type() === 'secondary' || this.type() === 'outline' || this.type() === 'warning-secondary') {
         classes.push('border-[#d5d7da]');
       }
     }
 
     // Full width
-    if (this.fullWidth || this.size === 'full') {
+    if (this.fullWidth() || this.size() === 'full') {
       classes.push('w-full');
     }
 
     // Icon with text
-    if (this.icon && !this.iconOnly) {
+    if (this.icon() && !this.iconOnly()) {
       classes.push('flex items-center gap-2');
     }
 

@@ -1,8 +1,8 @@
-<button [ngClass]="buttonClasses" [attr.type]="typeSubmit ? 'submit' : 'button'" [disabled]="disabled"
-  [attr.aria-label]="ariaLabel || null" class="flex items-center justify-center">
-  @if (iconOnly) {
-  @if (icon) {
-  <i class="{{icon}}"></i>
+<button [ngClass]="buttonClasses" [attr.type]="typeSubmit() ? 'submit' : 'button'" [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel || null" class="flex items-center justify-center" (click)="onClick.emit()">
+  @if (iconOnly()) {
+  @if (icon()) {
+  <i class="{{icon()}}"></i>
   } @else {
   <ng-content></ng-content>
   }
