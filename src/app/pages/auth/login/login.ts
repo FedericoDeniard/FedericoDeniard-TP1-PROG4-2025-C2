@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Button } from '../../../components/button/button';
 import { Router, RouterLink } from '@angular/router';
-import { SupabaseService } from '../../../services/supabase/supabase';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { getSupabaseErrors, SupabaseService } from '../../../services/supabase/supabase';
+import { FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherLoader } from '@ng-icons/feather-icons';
+import { AuthError } from '@supabase/supabase-js';
 
 @Component({
   selector: 'app-login',
@@ -38,13 +39,9 @@ export class Login {
     })
     try {
       if (!this.loginForm.valid) {
-        if (this.loginForm.get("email")?.errors?.["email"]) {
-          this.errorMessage = "Por favor, ingrese un correo electrónico válido"
-        } else if (this.loginForm.get("password")?.errors?.["minlength"]) {
-          this.errorMessage = "La contraseña debe tener al menos 6 caracteres"
-        } else {
-          this.errorMessage = "Por favor, complete todos los campos correctamente"
-        }
+        console.log("asd", this.loginForm.errors)
+        this.errorMessage = this.getFormErrors(this.loginForm.errors)
+        console.log("hola", this.errorMessage)
         return
       }
 
@@ -61,11 +58,7 @@ export class Login {
         })
 
         if (response.error) {
-          if (response.error.message === "Invalid login credentials") {
-            this.errorMessage = "Credenciales inválidas"
-          } else {
-            this.errorMessage = "Error al iniciar sesión"
-          }
+          this.errorMessage = getSupabaseErrors(response.error)
           return
         }
 
@@ -80,5 +73,26 @@ export class Login {
       this.loading = false
       this.loginForm.enable()
     }
+  }
+
+  private getFormErrors(error: ValidationErrors | null): string {
+    console.log(error)
+    const controls = Object.keys(this.loginForm.controls)
+    const errorMessages: Record<string, string> = {
+      email: "Por favor, ingrese un correo electrónico válido",
+      password: "La contraseña debe tener al menos 6 caracteres",
+      required: "Campo requerido",
+      passwordsNotMatch: "Las contraseñas no coinciden",
+      invalid: "Campo inválido"
+    }
+
+    for (const controlName of controls) {
+      const control = this.loginForm.get(controlName)
+      if (control?.errors) {
+        const firstErrorKey = Object.keys(control.errors)[0]
+        return errorMessages[firstErrorKey] || "Error desconocido"
+      }
+    }
+    return ""
   }
 }
