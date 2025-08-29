@@ -48,7 +48,7 @@ type GitHubUser = {
 @Injectable({ providedIn: 'root' })
 export class About {
   private http = inject(HttpClient)
-  myself$!: Observable<GitHubUser | null>;
+  myself$: Observable<GitHubUser | null> = new Observable<GitHubUser | null>();
 
 
   ngOnInit() {
