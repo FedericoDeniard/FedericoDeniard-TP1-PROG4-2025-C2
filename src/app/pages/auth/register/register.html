@@ -8,7 +8,7 @@
         </div>
 
         <!-- Main Content - Centered -->
-        <form class="flex items-center justify-center h-full pt-20 pb-8" (submit)="register($event)">
+        <form [formGroup]="registerForm" class="flex items-center justify-center h-full pt-20 pb-8" (submit)="register($event)">
             <div class="max-w-md w-full">
                 <h1 class="text-4xl font-title text-gray-900 mb-2 text-center">Bienvenido a Programación IV.</h1>
                 <p class="font-text text-gray-600 mb-8 text-center">Bienvenido al Dashboard de Programación IV.</p>
@@ -21,24 +21,24 @@
 
                 <div class="mb-4">
                     <label for="username" class="sr-only font-text">Usuario</label>
-                    <input type="text" id="username" placeholder="Usuario" [formControl]="username"
+                    <input type="text" id="username" placeholder="Usuario" formControlName="username"
                         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-text">
                 </div>
 
                 <div class="mb-4">
                     <label for="email" class="sr-only font-text">Email</label>
-                    <input type="email" id="email" placeholder="Email" [formControl]="email"
+                    <input type="email" id="email" placeholder="Email" formControlName="email"
                         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-text">
                 </div>
                 <div class="mb-6">
                     <label for="password" class="sr-only font-text">Contraseña</label>
-                    <input type="password" id="password" placeholder="Contraseña" [formControl]="password"
+                    <input type="password" id="password" placeholder="Contraseña" formControlName="password"
                         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-text">
                 </div>
                 <div class="mb-6">
                     <label for="password" class="sr-only font-text">Confirmar contraseña</label>
                     <input type="password" id="repeatedPassword" placeholder="Confirmar contraseña"
-                        [formControl]="repeatedPassword"
+                        formControlName="repeatedPassword"
                         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-text">
                 </div>
                 @if (errorMessage) {

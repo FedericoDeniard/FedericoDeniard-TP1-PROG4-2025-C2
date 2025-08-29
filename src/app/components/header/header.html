@@ -4,7 +4,7 @@
             <img src="/images/logo.ico" class="h-8" alt="logo">
             <span class="self-center text-2xl font-title whitespace-nowrap text-white">Programación IV</span>
         </a>
-        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-3">
             <button (click)="toggleMenu()" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-[#4B5563] focus:outline-none focus:ring-2 focus:ring-[#6B7280] dark:text-white dark:hover:bg-[#4B5563] dark:focus:ring-[#6B7280]"
                 aria-controls="navbar-sticky" [attr.aria-expanded]="isMenuOpen">
@@ -23,6 +23,11 @@
                         clip-rule="evenodd"></path>
                 </svg>
             </a>
+            <button (click)="logout()" 
+                class="flex items-center justify-center w-10 h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200"
+                title="Cerrar sesión">
+                <ng-icon name="featherLogOut" size="20"></ng-icon>
+            </button>
         </div>
         <!-- Sidebar overlay -->
         <div *ngIf="isMenuOpen" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" (click)="toggleMenu()">
@@ -71,6 +76,13 @@
                         <ng-icon *ngIf="isMenuOpen" name="featherMail" size="20" class="md:hidden"></ng-icon>
                         <p class="font-text">Contacto</p>
                     </a>
+                </li>
+                <li class="md:hidden">
+                    <button (click)="logout()"
+                        class="flex items-center gap-3 py-2 px-3 text-white rounded-sm hover:bg-[#4B5563] w-full text-left">
+                        <ng-icon name="featherLogOut" size="20"></ng-icon>
+                        <p class="font-text">Cerrar sesión</p>
+                    </button>
                 </li>
             </ul>
         </div>

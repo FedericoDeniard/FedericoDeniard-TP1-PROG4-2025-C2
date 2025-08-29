@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { Button } from '../../../components/button/button';
 import { Router, RouterLink } from '@angular/router';
 import { SupabaseService } from '../../../services/supabase/supabase';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherLoader } from '@ng-icons/feather-icons';
+import { getFormErrors } from '../../../utils/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,70 +18,62 @@ import { featherLoader } from '@ng-icons/feather-icons';
 export class Register {
   private supabase = inject(SupabaseService)
   private router = inject(Router)
+  protected errorMessage = ""
   protected loading = false
 
-  email = new FormControl("")
-  password = new FormControl("")
-  repeatedPassword = new FormControl("")
-  username = new FormControl("")
-  protected errorMessage = ""
+  registerForm = new FormGroup({
+    username: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required, Validators.minLength(6)]),
+    repeatedPassword: new FormControl("", [Validators.required])
+  }, { validators: this.comparePasswords })
 
   protected async register(event: Event) {
     event.preventDefault()
     this.errorMessage = ""
-    this.loading = true
-    this.disableForm()
     try {
-      if (!this.email.value || !this.password.value || !this.username.value || !this.repeatedPassword.value) {
-        this.errorMessage = "Por favor, complete todos los campos"
+      if (!this.registerForm.valid) {
+        this.errorMessage = getFormErrors(this.registerForm)
+        this.loading = false
+        this.registerForm.enable()
         return
       }
-      if (this.username.value.length < 3) {
-        this.errorMessage = "El nombre de usuario debe tener al menos 3 caracteres"
-        return
-      }
+      const email = this.registerForm.get("email")?.value
+      const username = this.registerForm.get("username")?.value
+      const password = this.registerForm.get("password")?.value
+      const repeatedPassword = this.registerForm.get("repeatedPassword")?.value
 
-      if (this.password.value.length < 6) {
-        this.errorMessage = "La contraseña debe tener al menos 6 caracteres"
-        return
-      }
+      this.loading = true
+      this.registerForm.disable()
 
-      if (this.password.value !== this.repeatedPassword.value) {
-        this.errorMessage = "Las contraseñas no coinciden"
-        return
-      }
+      if (email && password && username) {
+        const user: Parameters<SupabaseService['register']>[0] & { repeatedPassword: string } = {
+          email: email,
+          password: password,
+          username: username,
+          repeatedPassword: repeatedPassword!,
+        }
 
-      const user: Parameters<SupabaseService['register']>[0] & { repeatedPassword: string } = {
-        email: this.email.value,
-        password: this.password.value,
-        username: this.username.value,
-        repeatedPassword: this.repeatedPassword.value!,
-      }
-
-      const response = await this.supabase.register(user)
-      if (response.user !== null && response.session !== null) {
-        this.router.navigate(['/'])
+        const response = await this.supabase.register(user)
+        if (response.user !== null && response.session !== null) {
+          this.router.navigate(['/'])
+        }
       }
     } catch (error) {
       console.error(error)
       this.errorMessage = "Error al registrarse"
     } finally {
       this.loading = false
-      this.activateForm()
+      this.registerForm.enable()
     }
   }
 
-  private disableForm() {
-    this.email.disable()
-    this.password.disable()
-    this.repeatedPassword.disable()
-    this.username.disable()
-  }
-
-  private activateForm() {
-    this.email.enable()
-    this.password.enable()
-    this.repeatedPassword.enable()
-    this.username.enable()
+  private comparePasswords(control: AbstractControl): ValidationErrors | null {
+    const password = control.get("password")?.value
+    const repeatedPassword = control.get("repeatedPassword")?.value
+    if (password !== repeatedPassword) {
+      return { passwordsNotMatch: true }
+    }
+    return null
   }
 }

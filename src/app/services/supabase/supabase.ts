@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import {
   AuthChangeEvent,
+  AuthError,
   AuthSession,
   createClient,
   Session,
@@ -90,4 +91,16 @@ export class SupabaseService {
     return this._session;
 
   }
+}
+
+export const getSupabaseErrors = (error: AuthError) => {
+  const status = error.status
+  const errors = {
+    400: "Credenciales inválidas",
+    401: "Unauthorized",
+    403: "Forbidden",
+    404: "Not Found",
+    500: "Internal Server Error",
+  }
+  return typeof status === 'number' ? errors[status as keyof typeof errors] : error.message
 }
