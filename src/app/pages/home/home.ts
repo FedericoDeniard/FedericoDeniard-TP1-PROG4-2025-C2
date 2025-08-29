@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { Button } from "../../components/button/button";
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, RouterLink, Button],
+  imports: [FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
   standalone: true
