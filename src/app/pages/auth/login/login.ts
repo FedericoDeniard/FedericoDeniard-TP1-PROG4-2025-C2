@@ -6,6 +6,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validato
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherLoader } from '@ng-icons/feather-icons';
 import { AuthError } from '@supabase/supabase-js';
+import { getFormErrors } from '../../../utils/forms';
 
 @Component({
   selector: 'app-login',
@@ -30,18 +31,9 @@ export class Login {
   async login(event: Event) {
     event.preventDefault()
     this.errorMessage = ""
-
-    console.log('Form status:', {
-      emailValid: this.loginForm.get("email")?.valid,
-      emailValue: this.loginForm.get("email")?.value,
-      passwordValid: this.loginForm.get("password")?.valid,
-      formValid: this.loginForm.valid
-    })
     try {
       if (!this.loginForm.valid) {
-        console.log("asd", this.loginForm.errors)
-        this.errorMessage = this.getFormErrors(this.loginForm.errors)
-        console.log("hola", this.errorMessage)
+        this.errorMessage = getFormErrors(this.loginForm)
         return
       }
 
@@ -73,26 +65,5 @@ export class Login {
       this.loading = false
       this.loginForm.enable()
     }
-  }
-
-  private getFormErrors(error: ValidationErrors | null): string {
-    console.log(error)
-    const controls = Object.keys(this.loginForm.controls)
-    const errorMessages: Record<string, string> = {
-      email: "Por favor, ingrese un correo electrónico válido",
-      password: "La contraseña debe tener al menos 6 caracteres",
-      required: "Campo requerido",
-      passwordsNotMatch: "Las contraseñas no coinciden",
-      invalid: "Campo inválido"
-    }
-
-    for (const controlName of controls) {
-      const control = this.loginForm.get(controlName)
-      if (control?.errors) {
-        const firstErrorKey = Object.keys(control.errors)[0]
-        return errorMessages[firstErrorKey] || "Error desconocido"
-      }
-    }
-    return ""
   }
 }

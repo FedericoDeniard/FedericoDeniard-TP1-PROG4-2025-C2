@@ -5,6 +5,7 @@ import { SupabaseService } from '../../../services/supabase/supabase';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherLoader } from '@ng-icons/feather-icons';
+import { getFormErrors } from '../../../utils/forms';
 
 @Component({
   selector: 'app-register',
@@ -30,27 +31,9 @@ export class Register {
   protected async register(event: Event) {
     event.preventDefault()
     this.errorMessage = ""
-
-    console.log('Form status:', {
-      formValid: this.registerForm.valid,
-      usernameValid: this.registerForm.get("username")?.valid,
-      emailValid: this.registerForm.get("email")?.valid,
-      passwordValid: this.registerForm.get("password")?.valid
-    })
-
     try {
       if (!this.registerForm.valid) {
-        if (this.registerForm.get("username")?.errors?.["minlength"]) {
-          this.errorMessage = "El nombre de usuario debe tener al menos 3 caracteres"
-        } else if (this.registerForm.get("email")?.errors?.["email"]) {
-          this.errorMessage = "Por favor, ingrese un correo electrónico válido"
-        } else if (this.registerForm.get("password")?.errors?.["minlength"]) {
-          this.errorMessage = "La contraseña debe tener al menos 6 caracteres"
-        } else if (this.registerForm.errors?.["passwordsNotMatch"]) {
-          this.errorMessage = "Las contraseñas no coinciden"
-        } else {
-          this.errorMessage = "Por favor, complete todos los campos correctamente"
-        }
+        this.errorMessage = getFormErrors(this.registerForm)
         this.loading = false
         this.registerForm.enable()
         return
