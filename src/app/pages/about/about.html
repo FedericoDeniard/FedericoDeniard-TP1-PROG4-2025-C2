@@ -1,15 +1,32 @@
 <div class="flex flex-col bg-white pb-8 justify-center items-center flex-grow">
-    <div class="grid grid-cols-2 grid-rows-2 items-center p-8 w-full max-w-4xl mx-auto h-full">
-        <div class="col-span-1 row-start-1 w-full h-full flex items-center justify-center">
-            <h1 class="font-title text-4xl mb-4 text-center">Federico Deniard</h1>
+    @if (myself$ | async; as myselfData) {
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex items-start justify-center md:w-1/3">
+            <img [src]="myselfData.avatar_url" [alt]="myselfData.name" class="shadow-lg max-h-80 w-auto object-cover">
         </div>
-        <div class="col-span-1 row-start-2 w-full h-full flex items-center justify-center">
-            <p class="font-text text-lg text-center">Hola profesores de Programación IV, espero que les guste el diseño
-                de la página
-            </p>
-        </div>
-        <div class="col-span-1 row-span-2 flex items-center justify-center">
-            <img src="/images/FedeAI.png" alt="FedeAI" class="max-h-96 max-w-full object-contain">
+        <div class="flex flex-col md:w-1/2">
+            <h1 class="font-title text-3xl mb-2">{{ myselfData.name }}</h1>
+            @if (myselfData.company) {
+            <p class="font-text text-base text-gray-600 mb-4">{{ myselfData.company }}</p>
+            }
+            <p class="font-text text-base text-gray-700 leading-relaxed">{{ myselfData.bio }}</p>
         </div>
     </div>
+    } @else {
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex items-start justify-center md:w-1/3">
+            <div class="animate-pulse bg-gray-300 rounded-full w-64 h-64"></div>
+        </div>
+        <div class="flex flex-col md:w-1/2">
+            <div class="animate-pulse bg-gray-300 h-10 w-64 rounded-lg mb-4"></div>
+            <div class="animate-pulse bg-gray-300 h-6 w-48 rounded-lg mb-4"></div>
+            <div class="animate-pulse space-y-2">
+                <div class="bg-gray-300 h-4 rounded"></div>
+                <div class="bg-gray-300 h-4 rounded w-5/6"></div>
+                <div class="bg-gray-300 h-4 rounded w-4/6"></div>
+                <div class="bg-gray-300 h-4 rounded w-3/4"></div>
+            </div>
+        </div>
+    </div>
+    }
 </div>
