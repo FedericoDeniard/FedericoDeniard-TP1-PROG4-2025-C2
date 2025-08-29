@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
+import { Button } from "../../components/button/button";
 
 type GitHubUser = {
   login?: string;
@@ -41,7 +42,7 @@ type GitHubUser = {
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule],
+  imports: [CommonModule, Button],
   templateUrl: './about.html',
   styleUrl: './about.css'
 })
