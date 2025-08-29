@@ -1,15 +1,87 @@
 <div class="flex flex-col bg-white pb-8 justify-center items-center flex-grow">
-    <div class="grid grid-cols-2 grid-rows-2 items-center p-8 w-full max-w-4xl mx-auto h-full">
-        <div class="col-span-1 row-start-1 w-full h-full flex items-center justify-center">
-            <h1 class="font-title text-4xl mb-4 text-center">Federico Deniard</h1>
+    @if (myself$ | async; as myselfData) {
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex items-start justify-center md:w-1/3">
+            <img [src]="myselfData.avatar_url" [alt]="myselfData.name" class="shadow-lg max-h-80 w-auto object-cover">
         </div>
-        <div class="col-span-1 row-start-2 w-full h-full flex items-center justify-center">
-            <p class="font-text text-lg text-center">Hola profesores de Programación IV, espero que les guste el diseño
-                de la página
-            </p>
-        </div>
-        <div class="col-span-1 row-span-2 flex items-center justify-center">
-            <img src="/images/FedeAI.png" alt="FedeAI" class="max-h-96 max-w-full object-contain">
+        <div class="flex flex-col md:w-5/7">
+            <h1 class="font-title text-3xl mb-2">{{ myselfData.name }}</h1>
+            @if (myselfData.company) {
+            <p class="font-text text-base text-gray-600 mb-4">{{ myselfData.company }}</p>
+            }
+            <p class="font-text text-base text-gray-700 leading-relaxed">{{ myselfData.bio }}</p>
         </div>
     </div>
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex flex-col md:w-full">
+            <h2 class="font-title text-2xl mb-2">Juego Propio</h2>
+            <p class="font-text text-base text-gray-700 leading-relaxed">El juego propio que propongo, consiste en
+                mostrarle 2 imagenes al usuario, 1 generada por AI y otra real, el juego se basa en adivinar cual es
+                la imagen real. El puntaje se mide contando los aciertos consecutivos hasta equivocarse, donde se
+                guarda la puntuación del jugador y se resetea el contador a 0.</p>
+        </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex flex-col md:w-full">
+            <h3 class="font-title text-xl mb-2">Mockup del Juego</h3>
+            <div class="flex flex-col items-center justify-center w-full">
+                <p class="font-text text-lg mb-4">Score: 5 - Max Score: 11</p>
+                <div class="flex flex-row gap-4 mb-4 w-full">
+                    <div class="flex flex-col items-center w-1/2 gap-3">
+                        <img src="https://kaleidoimages.ai/image/bae4d9bc-e06e-49f9-a813-bc4d1460cd21_orange.webp?t=1756467557854717&r=983197ba"
+                            alt="Imagen 1" class="object-cover w-full aspect-square">
+                        <app-button>
+                            Esta es real
+                        </app-button>
+                    </div>
+                    <div class="flex flex-col items-center w-1/2 gap-3">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL8wYvANaCLfz8PEFYlJwl1JgYs9Qh7KsMNg&s"
+                            alt="Imagen 2" class="object-cover w-full aspect-square">
+                        <app-button>
+                            Esta es real
+                        </app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    } @else {
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex items-start justify-center md:w-5/7">
+            <div class="animate-pulse bg-gray-300 w-64 h-64"></div>
+        </div>
+        <div class="flex flex-col md:w-1/2">
+            <div class="animate-pulse bg-gray-300 h-10 w-64 rounded-lg mb-4"></div>
+            <div class="animate-pulse bg-gray-300 h-6 w-48 rounded-lg mb-4"></div>
+            <div class="animate-pulse space-y-2">
+                <div class="bg-gray-300 h-4 rounded"></div>
+                <div class="bg-gray-300 h-4 rounded w-5/6"></div>
+                <div class="bg-gray-300 h-4 rounded w-4/6"></div>
+                <div class="bg-gray-300 h-4 rounded w-3/4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex flex-col md:w-full">
+            <div class="animate-pulse bg-gray-300 h-8 w-48 rounded-lg mb-2"></div>
+            <div class="animate-pulse bg-gray-300 h-4 w-full rounded"></div>
+        </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-6 items-start p-6 w-full max-w-4xl mx-auto">
+        <div class="flex flex-col md:w-full">
+            <div class="animate-pulse bg-gray-300 h-8 w-48 rounded-lg mb-2"></div>
+            <div class="animate-pulse bg-gray-300 h-6 w-32 rounded-lg mb-4"></div>
+            <div class="flex flex-row gap-4 mb-4 w-full">
+                <div class="flex flex-col items-center w-1/2">
+                    <div class="animate-pulse bg-gray-300 w-full aspect-square"></div>
+                    <div class="animate-pulse bg-gray-300 h-10 w-32 rounded mt-2"></div>
+                </div>
+                <div class="flex flex-col items-center w-1/2">
+                    <div class="animate-pulse bg-gray-300 w-full aspect-square"></div>
+                    <div class="animate-pulse bg-gray-300 h-10 w-32 rounded mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
 </div>
