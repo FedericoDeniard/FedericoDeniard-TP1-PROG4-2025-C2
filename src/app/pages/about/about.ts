@@ -52,7 +52,7 @@ export class About {
 
 
   ngOnInit() {
-    this.myself$ = this.getMyself("FedericoDeniard");
+    this.myself$ = this.getMyself("FedericoDeniard")
   }
 
   getMyself(username: string): Observable<GitHubUser | null> {
