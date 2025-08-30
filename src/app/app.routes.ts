@@ -63,10 +63,6 @@ export const routes: Routes = [
         path: 'games',
         canActivate: [authGuard],
         children: [
-            {
-                path: 'hangman',
-                loadComponent: () => import('./pages/auth/register/register').then((mod) => mod.Register)
-            }
         ]
     },
     {

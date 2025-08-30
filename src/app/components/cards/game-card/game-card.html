@@ -1,0 +1,35 @@
+<a [routerLink]="cardUrl"
+  class="group block bg-gradient-to-r {{ backgroundGradient }} rounded-2xl p-4 relative overflow-hidden w-full max-w-sm mx-auto cursor-pointer hover:scale-105 transition-transform duration-200">
+  <!-- Trophy button -->
+  @if (trophyUrl) {
+  <span (click)="$event.stopPropagation()"
+    class="absolute top-4 right-4 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-shadow z-10">
+    <a [routerLink]="trophyUrl" class="text-lg">🏆</a>
+  </span>
+  }
+
+  <div class="flex items-start justify-between mb-6">
+    <div class="flex items-start gap-4">
+      <div
+        class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md overflow-hidden flex-shrink-0">
+        @if (gameImageUrl) {
+        <img [src]="gameImageUrl" [alt]="gameTitle" class="w-full h-full object-cover" />
+        } @else {
+        <span class="text-2xl">{{ gameIcon }}</span>
+        }
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-title text-white text-2xl font-bold tracking-wide truncate">{{ gameTitle }}</h3>
+        <p
+          class="font-text text-white text-sm opacity-90 mt-1 line-clamp-2 group-hover:line-clamp-none group-active:line-clamp-none group-focus:line-clamp-none transition-all duration-300">
+          {{ gameDescription }}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Play count footer -->
+  <div class="px-4 py-3">
+    <span class="text-white font-bold text-sm">{{ playCount }}</span>
+  </div>
+</a>

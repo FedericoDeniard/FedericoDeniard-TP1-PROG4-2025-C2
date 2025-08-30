@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { GameCard } from '../../components/cards/game-card/game-card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule],
+  imports: [FormsModule, GameCard, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
   standalone: true
