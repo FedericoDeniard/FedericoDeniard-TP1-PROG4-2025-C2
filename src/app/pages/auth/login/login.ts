@@ -5,7 +5,6 @@ import { getSupabaseErrors, SupabaseService } from '../../../services/supabase/s
 import { FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { featherLoader } from '@ng-icons/feather-icons';
-import { AuthError } from '@supabase/supabase-js';
 import { getFormErrors } from '../../../utils/forms';
 
 @Component({
@@ -65,5 +64,26 @@ export class Login {
       this.loading = false
       this.loginForm.enable()
     }
+  }
+
+  test1Account() {
+    this.loginForm.setValue({
+      email: "test1@test.com",
+      password: "123456"
+    })
+  }
+
+  test2Account() {
+    this.loginForm.setValue({
+      email: "test2@test.com",
+      password: "123456"
+    })
+  }
+
+  test3Account() {
+    this.loginForm.setValue({
+      email: "test3@test.com",
+      password: "123456"
+    })
   }
 }

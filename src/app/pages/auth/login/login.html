@@ -41,14 +41,25 @@
                         tu contraseña?</a>
                 </div>
 
+                <div class="flex flex-col items-center gap-3">
 
-                <app-button [disabled]="loading" buttonType="primary" [typeSubmit]="true" size="full"
-                    class="w-full mb-6">
-                    @if (loading) {
-                    <ng-icon name="featherLoader" class="animate-spin mr-2"></ng-icon>
-                    }
-                    {{loading ? 'Iniciando sesión' : 'Iniciar sesión'}}
-                </app-button>
+                    <app-button [disabled]="loading" type="primary" [typeSubmit]="true" size="full" class="w-full">
+                        @if (loading) {
+                        <ng-icon name="featherLoader" class="animate-spin mr-2"></ng-icon>
+                        }
+                        {{loading ? 'Iniciando sesión' : 'Iniciar sesión'}}
+                    </app-button>
+                    <app-button type="secondary" size="full" class="w-full" (onClick)="test1Account()">
+                        Iniciar sesión con Test 1
+                    </app-button>
+                    <app-button type="secondary" size="full" class="w-full" (onClick)="test2Account()">
+                        Iniciar sesión con Test 2
+                    </app-button>
+                    <app-button type="secondary" size="full" class="w-full" (onClick)="test3Account()">
+                        Iniciar sesión con Test 3
+                    </app-button>
+                </div>
+
 
                 <p class="font-text text-center text-gray-600 p-4">
                     ¿No tienes una cuenta? <a routerLink="/auth/register"
