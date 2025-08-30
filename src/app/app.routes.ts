@@ -62,7 +62,24 @@ export const routes: Routes = [
     {
         path: 'games',
         canActivate: [authGuard],
+        component: MainLayout,
         children: [
+            {
+                path: 'hangman',
+                loadComponent: () => import('./pages/games/hangman/hangman').then((mod) => mod.Hangman)
+            },
+            {
+                path: 'trivia',
+                loadComponent: () => import('./pages/games/trivia/trivia').then((mod) => mod.Trivia)
+            },
+            {
+                path: 'greater-or-lower',
+                loadComponent: () => import('./pages/games/greater-or-lower/greater-or-lower').then((mod) => mod.GreaterOrLower)
+            },
+            {
+                path: 'fake-or-photo',
+                loadComponent: () => import('./pages/games/fake-or-photo/fake-or-photo').then((mod) => mod.FakeOrPhoto)
+            }
         ]
     },
     {
