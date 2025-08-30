@@ -15,6 +15,7 @@
                         d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
+            @if (session) {
             <a routerLink="/profile" (click)="setSelected('profile')"
                 class="relative w-10 h-10 overflow-hidden bg-[#F5F5F5] rounded-lg dark:bg-[#4B5563]">
                 <svg class="absolute w-12 h-12 text-white -left-1" fill="currentColor" viewBox="0 0 20 20"
@@ -23,6 +24,7 @@
                         clip-rule="evenodd"></path>
                 </svg>
             </a>
+            }
             @if (session) {
             <button (click)="logout()"
                 class="flex items-center justify-center w-10 h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200"
@@ -31,8 +33,9 @@
             </button>
             } @else {
             <button routerLink="/auth/login"
-                class="flex items-center justify-center w-10 h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200"
+                class="flex gap-3 px-4 py-2 items-center justify-center h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200"
                 title="Iniciar sesión">
+                Iniciar Sesión
                 <ng-icon name="featherLogIn" size="20"></ng-icon>
             </button>
             }
@@ -52,7 +55,7 @@
                 </svg>
             </button>
             <ul
-                class="flex flex-col p-4 mt-16 md:p-0 md:mt-4 font-medium md:border md:border-[#F5F5F5] md:rounded-lg md:bg-[#2E4A6B] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#2E4A6B] text-white">
+                class="flex flex-col p-4 mt-16 md:p-0 font-medium md:border md:border-[#F5F5F5] md:rounded-lg md:bg-[#2E4A6B] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#2E4A6B] text-white md:items-center">
                 <li>
                     <a routerLink="/" (click)="setSelected('home')"
                         [class]="isSelected('home') ? 'flex items-center gap-3 py-2 px-3 text-white bg-[#EE6C4D] rounded-sm md:bg-transparent md:text-[#EE6C4D] md:p-0' : 'flex items-center gap-3 py-2 px-3 text-white rounded-sm hover:bg-[#4B5563] md:hover:bg-transparent md:hover:text-[#EE6C4D] md:p-0'"
