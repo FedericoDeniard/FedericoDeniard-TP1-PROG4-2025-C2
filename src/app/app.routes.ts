@@ -6,7 +6,6 @@ export const routes: Routes = [
     {
         path: '',
         component: MainLayout,
-        canActivate: [authGuard],
         children: [
             {
                 path: '',
@@ -57,6 +56,16 @@ export const routes: Routes = [
             {
                 path: 'login',
                 loadComponent: () => import('./pages/auth/login/login').then((mod) => mod.Login)
+            }
+        ]
+    },
+    {
+        path: 'games',
+        canActivate: [authGuard],
+        children: [
+            {
+                path: 'hangman',
+                loadComponent: () => import('./pages/auth/register/register').then((mod) => mod.Register)
             }
         ]
     },
