@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameCard } from '../../components/cards/game-card/game-card';
-import { RouterLink } from '@angular/router';
+import { SupabaseService } from '../../services/supabase/supabase';
+import { Session } from '@supabase/supabase-js';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, GameCard, RouterLink],
+  imports: [FormsModule, GameCard],
   templateUrl: './home.html',
   styleUrl: './home.css',
   standalone: true
 })
-export class Home {
+export class Home implements OnInit {
+  private supabase = inject(SupabaseService);
+  protected session = signal<Session | null>(null)
+
+  async ngOnInit() {
+    this.session.set(await this.supabase.getSessionAsync());
+  }
   private mensaje: string = 'Hola Mundo!';
   private _nombre: string = '';
 
