@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgIcon, provideIcons } from '@ng-icons/core';
@@ -17,16 +17,16 @@ import { Session, Subscription } from '@supabase/supabase-js';
 export class Header implements OnInit, OnDestroy {
   isMenuOpen = false;
   selectedItem: string | null = 'home';
-  session: Session | null = null;
+  session = signal<Session | null>(null);
   authSubscription: Subscription | null = null;
 
   constructor(private router: Router, private supabase: SupabaseService) { }
 
   async ngOnInit() {
     const session = await this.supabase.getSessionAsync()
-    this.session = session
+    this.session.set(session)
     this.authSubscription = this.supabase.authChanges((event, session) => {
-      this.session = session;
+      this.session.set(session);
     }).data.subscription
   }
 

@@ -15,7 +15,7 @@
                         d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
-            @if (session) {
+            @if (session()) {
             <a routerLink="/profile" (click)="setSelected('profile')"
                 class="relative w-10 h-10 overflow-hidden bg-[#F5F5F5] rounded-lg dark:bg-[#4B5563]">
                 <svg class="absolute w-12 h-12 text-white -left-1" fill="currentColor" viewBox="0 0 20 20"
@@ -25,7 +25,7 @@
                 </svg>
             </a>
             }
-            @if (session) {
+            @if (session()) {
             <button (click)="logout()"
                 class="flex items-center justify-center w-10 h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200"
                 title="Cerrar sesión">
@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="md:hidden">
-                    @if (session) {
+                    @if (session()) {
                     <button (click)="logout()"
                         class="flex items-center gap-3 py-2 px-3 text-white rounded-sm hover:bg-[#4B5563] w-full text-left">
                         <ng-icon name="featherLogOut" size="20"></ng-icon>
