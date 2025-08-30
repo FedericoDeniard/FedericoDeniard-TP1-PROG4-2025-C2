@@ -27,13 +27,13 @@
             }
             @if (session()) {
             <button (click)="logout()"
-                class="flex items-center justify-center w-10 h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200"
+                class="flex items-center justify-center w-10 h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200 cursor-pointer"
                 title="Cerrar sesión">
                 <ng-icon name="featherLogOut" size="20"></ng-icon>
             </button>
             } @else {
             <button routerLink="/auth/login"
-                class="flex gap-3 px-4 py-2 items-center justify-center h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200"
+                class="flex gap-3 px-4 py-2 items-center justify-center h-10 text-white bg-[#EE6C4D] rounded-lg hover:bg-[#D85A3D] transition-colors duration-200 cursor-pointer"
                 title="Iniciar sesión">
                 Iniciar Sesión
                 <ng-icon name="featherLogIn" size="20"></ng-icon>
